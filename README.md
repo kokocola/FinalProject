@@ -21,10 +21,10 @@ Movie
 /api/movies  = GET ALL (GET)
 ```
 ```
-/api/movies/{string} = Search from Genre (GET)
+/api/movies/{integer:currentPage}/search/{string:genre} = Search from Genre (GET) P.S. For new searches this should be passed in as `0` originally. Genre will be url encoded as it can contain `,`.
 ```
 ```
-/api/movies/{object} = CREATE
+/api/movies/{object:Movie} = CREATE
 ```
 ```
 /api/movies/{string:Title} = DELETE
