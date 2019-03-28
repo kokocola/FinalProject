@@ -1,0 +1,5 @@
+X:\Courses\COMP3618\Code\Assignments\FinalProject\FinalProject.Domain\bin\Debug\FinalProject.Domain.dll
+X:\Courses\COMP3618\Code\Assignments\FinalProject\FinalProject.Domain\bin\Debug\FinalProject.Domain.pdb
+X:\Courses\COMP3618\Code\Assignments\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.csproj.CoreCompileInputs.cache
+X:\Courses\COMP3618\Code\Assignments\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.dll
+X:\Courses\COMP3618\Code\Assignments\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.pdb
