@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\WebApiServer",
+    "\\WebApiServerCore",
+    "\\WebApiServerCore\\Models"
   ],
+  "SelectedNode": "\\WebApiServerCore\\Models\\IMDBContext.cs",
   "PreviewInSolutionExplorer": false
 }
