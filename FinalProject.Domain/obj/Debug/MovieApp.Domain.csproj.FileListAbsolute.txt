@@ -1,0 +1,6 @@
+U:\student\Courses\COMP3618\Code\Assignments\MovieApp\MovieApp.Domain\bin\Debug\MovieApp.Domain.dll
+U:\student\Courses\COMP3618\Code\Assignments\MovieApp\MovieApp.Domain\bin\Debug\MovieApp.Domain.pdb
+U:\student\Courses\COMP3618\Code\Assignments\MovieApp\MovieApp.Domain\obj\Debug\MovieApp.Domain.csprojAssemblyReference.cache
+U:\student\Courses\COMP3618\Code\Assignments\MovieApp\MovieApp.Domain\obj\Debug\MovieApp.Domain.csproj.CoreCompileInputs.cache
+U:\student\Courses\COMP3618\Code\Assignments\MovieApp\MovieApp.Domain\obj\Debug\MovieApp.Domain.dll
+U:\student\Courses\COMP3618\Code\Assignments\MovieApp\MovieApp.Domain\obj\Debug\MovieApp.Domain.pdb
