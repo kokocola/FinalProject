@@ -6,29 +6,36 @@ This project is for the BCIT 3618 Final Exam
 
 ### Class
 ```
-Movie
+public class Title
 {
-    Title {get; set; } maps from PrimaryTitle
-    Genre {get; set; } maps from Genre
-    IsAdult {get; set; }
-    Year { get; set; }  maps from StartYear
-    RunTimeMinutes { get; set; }
+	public string TitleId { get; set; }
+	public string TitleType { get; set; }
+	public string PrimaryTitle { get; set; }
+	public string OriginalTitle { get; set; }
+	public bool? IsAdult { get; set; }
+	public short? StartYear { get; set; }
+	public short? EndYear { get; set; }
+	public int? RuntimeMinutes { get; set; }
+	public string Genres { get; set; }
 }
 ```
 
 ### Api Endpoints
 ```
-/api/movies  = GET ALL (GET)
+/api/titles  = GET ALL (GET)
 ```
 ```
-/api/movies/{integer:currentPage}/search/{string:genre} = Search from Genre (GET) P.S. For new searches this should be passed in as `0` originally. Genre will be url encoded as it can contain `,`.
+/api/titles/{string:TitleId} = Search for title id (GET)
 ```
 ```
-/api/movies/{object:Movie} = CREATE
+/api/titles/{string:PrimaryTitle} = Search for title (GET)
 ```
 ```
-/api/movies/{string:Title} = DELETE
+/api/titles/{object:Title} = CREATE
 ```
 ```
-/api/movies/{string:Title} = Update
+/api/titles/{string:Title} = DELETE
+```
+```
+/api/titles/{string:Title} = UPDATE
 ```

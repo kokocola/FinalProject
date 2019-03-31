@@ -1,18 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace FinalProject.Domain
 {
-    public class Title
+	[DataContract]
+	public class Title
     {
-        public string TitleId { get; set; }
-        public string TitleType { get; set; }
-        public string PrimaryTitle { get; set; }
-        public string OriginalTitle { get; set; }
-        public bool? IsAdult { get; set; }
-        public short? StartYear { get; set; }
-        public short? EndYear { get; set; }
-        public int? RuntimeMinutes { get; set; }
-        public string Genres { get; set; }
+		[DataMember]
+		public string TitleId { get; set; }
+
+		[DataMember]
+		public string TitleType { get; set; }
+
+		[DataMember]
+		public string PrimaryTitle { get; set; }
+
+		[DataMember]
+		public string OriginalTitle { get; set; }
+
+		[DataMember]
+		public bool? IsAdult { get; set; }
+
+		[DataMember]
+		public short? StartYear { get; set; }
+
+		[DataMember]
+		public short? EndYear { get; set; }
+
+		[DataMember]
+		public int? RuntimeMinutes { get; set; }
+
+		[DataMember]
+		public string Genres { get; set; }
     }
 }
