@@ -1,0 +1,51 @@
+﻿<Window x:Class="FinalProject.WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject.WpfClient"
+        mc:Ignorable="d"
+        Title="FinalProject" Height="600" Width="300" Icon="/FinalProject.WpfClient;component/Content/VideoCamera_16x.png">
+    <DockPanel>
+        <TextBox x:Name="textBoxSearch" Text="{Binding Query, Delay=200, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Top" Height="32" VerticalContentAlignment="Center">
+            <TextBox.InputBindings>
+                <KeyBinding Key="Return" Command="{Binding Search}" CommandParameter="{Binding .}"/>
+            </TextBox.InputBindings>
+        </TextBox>
+        <ToolBar DockPanel.Dock="Top" ToolBarTray.IsLocked="True" Height="32">
+            <Button x:Name="buttonCreate">
+                <Image Source="/FinalProject.WpfClient;component/Content/Add_grey_16x.png"/>
+            </Button>
+            <Button x:Name="buttonRead" Command="{Binding Search}" CommandParameter="{Binding .}">
+                <Image Source="/FinalProject.WpfClient;component/Content/Search_16x.png"/>
+            </Button>
+            <Button x:Name="buttonUpdate">
+                <Image Source="/FinalProject.WpfClient;component/Content/Edit_grey_16x.png"/>
+            </Button>
+            <Button x:Name="buttonDelete">
+                <Image Source="/FinalProject.WpfClient;component/Content/Cancel_grey_16x.png"/>
+            </Button>
+        </ToolBar>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock>Records:</TextBlock>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock x:Name="textBlockRecordCount" Text="{Binding ResultCount}" />
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <ListView ItemsSource="{Binding Titles, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding TitleId}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding PrimaryTitle}"/>
+                            <TextBlock Text="{Binding Genres}" FontStyle="Italic"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </DockPanel>
+</Window>
