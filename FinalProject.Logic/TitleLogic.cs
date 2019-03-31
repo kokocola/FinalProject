@@ -37,17 +37,17 @@ namespace FinalProject.Logic
 			return _data.GetTitleById(id);
 		}
 
-		public IList<Title> GetTitles()
+		public IEnumerable<Title> GetTitles()
 		{
 			return _data.GetTitles();
 		}
 
-		public IList<Title> GetTitlesByTitle(string title)
+		public IEnumerable<Title> GetTitlesByTitle(string title)
 		{
 			return _data.GetTitlesByTitle(title);
 		}
 
-		public IList<Title> GetTitleRangeByTitle(string title, int startIndex, int count)
+		public IEnumerable<Title> GetTitleRangeByTitle(string title, int startIndex, int count)
 		{
 			return _data.GetTitleRangeByTitle(title, startIndex, count);
 		}
@@ -68,17 +68,17 @@ namespace FinalProject.Logic
 			return await _data.GetTitleByIdAsync(id);
 		}
 
-		public async Task<IList<Title>> GetTitlesAsync()
+		public async Task<IEnumerable<Title>> GetTitlesAsync()
 		{
 			return await _data.GetTitlesAsync();
 		}
 
-		public async Task<IList<Title>> GetTitlesByTitleAsync(string title)
+		public async Task<IEnumerable<Title>> GetTitlesByTitleAsync(string title)
 		{
 			return await _data.GetTitlesByTitleAsync(title);
 		}
 
-		public async Task<IList<Title>> GetTitleRangeByTitleAsync(string title, int startIndex, int count)
+		public async Task<IEnumerable<Title>> GetTitleRangeByTitleAsync(string title, int startIndex, int count)
 		{
 			return await _data.GetTitleRangeByTitleAsync(title, startIndex, count);
 		}

@@ -20,14 +20,19 @@ namespace FinalProject.WebApi.Controllers
 		}
 
 		// GET: api/Title
-		[HttpGet]
-		public async Task<IList<Title>> GetMovies()
-		{
-			return await _logic.GetTitlesAsync();
-		}
+		//[HttpGet]
+		//public async Task<IList<Title>> GetMovies() {
+		//	return await _logic.GetTitlesAsync();
+		//}
 
-		// GET: api/Title/5
-		[HttpGet("{id}")]
+        // GET: api/Title
+        [HttpGet]
+        public IEnumerable<Title> GetMovies() {
+            return _logic.GetTitles();
+        }
+
+        // GET: api/Title/5
+        [HttpGet("{id}")]
 		public async Task<IActionResult> GetMovie([FromRoute] string id)
 		{
 			if (!ModelState.IsValid)
@@ -54,7 +59,7 @@ namespace FinalProject.WebApi.Controllers
 				return BadRequest(ModelState);
 			}
 
-			IList<Title> movies = await _logic.GetTitlesByTitleAsync(title);
+            IEnumerable<Title> movies = await _logic.GetTitlesByTitleAsync(title);
 
 			if (movies == null)
 			{

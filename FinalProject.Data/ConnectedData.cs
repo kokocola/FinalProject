@@ -35,9 +35,9 @@ namespace FinalProject.Data
 
 		// READ
 		// SYNCHRONOUS
-		public IList<Title> GetTitles()
+		public IEnumerable<Title> GetTitles()
 		{
-			return _context.Titles.ToList();
+			return _context.Titles;
 		}
 
 		public Title GetTitleById(string id)
@@ -45,12 +45,12 @@ namespace FinalProject.Data
 			return _context.Titles.Find(id);
 		}
 
-		public IList<Title> GetTitlesByTitle(string title)
+		public IEnumerable<Title> GetTitlesByTitle(string title)
 		{
 			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).ToList();
 		}
 
-		public IList<Title> GetTitleRangeByTitle(string title, int startIndex, int count)
+		public IEnumerable<Title> GetTitleRangeByTitle(string title, int startIndex, int count)
 		{
 			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).Skip(startIndex).Take(count).ToList();
 		}
@@ -71,12 +71,12 @@ namespace FinalProject.Data
 			return await _context.Titles.FindAsync(id);
 		}
 
-		public async Task<IList<Title>> GetTitlesAsync()
+		public async Task<IEnumerable<Title>> GetTitlesAsync()
 		{
 			return await _context.Titles.ToListAsync();
 		}
 
-		public async Task<IList<Title>> GetTitlesByTitleAsync(string title)
+		public async Task<IEnumerable<Title>> GetTitlesByTitleAsync(string title)
 		{
 			return await _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).ToListAsync();
 		}
