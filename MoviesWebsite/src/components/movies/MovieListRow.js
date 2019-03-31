@@ -4,11 +4,15 @@ import {Link} from 'react-router';
 const MovieListRow = ({movie}) => {
     return (
         <tr>
-            <td><a href="{movie.watchHref}" target="_blank">Watch</a></td>
-            <td><Link to={`/movie/` + movie.id}>{movie.title}</Link></td>
-            <td>{movie.authorId}</td>
-            <td>{movie.category}</td>
-            <td>{movie.length}</td>
+            <td>&nbsp;</td>
+            <td><Link to={`/movie/` + movie.titleId}>{movie.titleType}</Link></td>
+            <td>{movie.primaryTitle}</td>
+            <td>{movie.originalTitle}</td>
+            <td>{movie.isAdult.toString()}</td>
+            <td>{movie.startYear}</td>
+            <td>{movie.endYear}</td>
+            <td>{movie.runTimeMinutes}</td>
+            <td>{movie.genre}</td>
         </tr>
     );
 };
