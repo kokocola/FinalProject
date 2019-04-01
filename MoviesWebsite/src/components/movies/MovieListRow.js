@@ -5,14 +5,14 @@ const MovieListRow = ({movie}) => {
     return (
         <tr>
             <td>&nbsp;</td>
-            <td><Link to={`/movie/` + movie.titleId}>{movie.titleType}</Link></td>
-            <td>{movie.primaryTitle}</td>
+            <td>{movie.titleType}</td>
+            <td><Link to={`/movie/` + movie.titleId}>{movie.primaryTitle}</Link></td>
             <td>{movie.originalTitle}</td>
             <td>{movie.isAdult.toString()}</td>
             <td>{movie.startYear}</td>
             <td>{movie.endYear}</td>
-            <td>{movie.runTimeMinutes}</td>
-            <td>{movie.genre}</td>
+            <td>{movie.runtimeMinutes}</td>
+            <td>{movie.genres}</td>
         </tr>
     );
 };

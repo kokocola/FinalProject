@@ -29,7 +29,7 @@ namespace FinalProject.WebApi.Controllers
         // GET: api/Title
         [HttpGet]
         public IEnumerable<Title> GetMovies() {
-            return _logic.GetTitles().Take(5).ToList();
+            return _logic.GetTitles().Take(1000).ToList();
         }
 
         // GET: api/Title/5

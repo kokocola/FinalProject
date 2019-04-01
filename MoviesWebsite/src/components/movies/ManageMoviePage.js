@@ -127,8 +127,8 @@ function mapStateToProps(state, ownProps) {
         isAdult:false,
         startYear: '',
         endYear: '',
-        runTimeMinutes: '',
-        genre: ''
+        runtimeMinutes: '',
+        genres: ''
     };
 
     if (movieId && state.movies.length > 0) {

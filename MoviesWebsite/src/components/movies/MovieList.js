@@ -14,7 +14,7 @@ const MovieList = ({movies}) => {
                     <th>Start Year</th>
                     <th>End Year</th>
                     <th>Minutes</th>
-                    <th>Genre</th>
+                    <th>Genres</th>
                 </tr>
             </thead>
             <tbody>

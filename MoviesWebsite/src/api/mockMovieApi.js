@@ -14,8 +14,8 @@ const movies = [
     isAdult: false,
     startYear: 2000,
     endYear: 2001,
-    runTimeMinutes: 122,
-    genre: "Action"
+    runtimeMinutes: 122,
+    genres: "Action"
   },
   {
     titleId: "2",
@@ -25,8 +25,8 @@ const movies = [
     isAdult: false,
     startYear: 1998,
     endYear: 2005,
-    runTimeMinutes: 100,
-    genre: "Drama"
+    runtimeMinutes: 100,
+    genres: "Drama"
   },
   {
     titleId: "3",
@@ -36,8 +36,8 @@ const movies = [
     isAdult: true,
     startYear: 1995,
     endYear: 2001,
-    runTimeMinutes: 45,
-    genre: "Comedy"
+    runtimeMinutes: 45,
+    genres: "Comedy"
   },
   {
     titleId: "4",
@@ -47,8 +47,8 @@ const movies = [
     isAdult: false,
     startYear: 2000,
     endYear: 2014,
-    runTimeMinutes: 99,
-    genre: "Horrer"
+    runtimeMinutes: 99,
+    genres: "Horrer"
   },
   {
     titleId: "5",
@@ -58,8 +58,8 @@ const movies = [
     isAdult: true,
     startYear: 2000,
     endYear: 2005,
-    runTimeMinutes: 98,
-    genre: "Thriller"
+    runtimeMinutes: 98,
+    genres: "Thriller"
   }
 ];
 
@@ -75,8 +75,10 @@ const generateId = (movie) => {
 class MovieApi {
   static getAllMovies() {
     return new Promise((resolve, reject) => {
-      resolve(Object.assign([], api_helper.make_api_get_call(api_constants.HOST, api_constants.GET_ALL_TITLES)));
-    }).then(() => { console.log('inner item'); });
+      setTimeout(() => {
+        resolve(Object.assign([], movies));
+      }, delay);
+    });
   }
 
   static getFilteredMovies(title) {

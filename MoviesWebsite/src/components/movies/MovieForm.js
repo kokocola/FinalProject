@@ -53,16 +53,16 @@ const MovieForm = ({movie, onSave, onChange, saving, errors, onDelete}) => {
             <NumberInput
                 name="runTimeMinutes"
                 label="Runtime Minutes"
-                value={movie.runTimeMinutes}
+                value={movie.runtimeMinutes}
                 onChange={onChange}
-                error={errors.runTimeMinutes}
+                error={errors.runtimeMinutes}
             />
             <TextInput
-                name="genre"
-                label="Genre"
-                value={movie.genre}
+                name="genres"
+                label="Genres"
+                value={movie.genres}
                 onChange={onChange}
-                error={errors.genre}
+                error={errors.genres}
             />
             <input
                 type="submit"
