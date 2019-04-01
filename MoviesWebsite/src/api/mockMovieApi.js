@@ -1,3 +1,5 @@
+import * as api_constants from './api_constants';
+import * as api_helper from './api_helper';
 import delay from './delay';
 
 // This file mocks a web API by working with the hard-coded data below.
@@ -73,10 +75,8 @@ const generateId = (movie) => {
 class MovieApi {
   static getAllMovies() {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(Object.assign([], movies));
-      }, delay);
-    });
+      resolve(Object.assign([], api_helper.make_api_get_call(api_constants.HOST, api_constants.GET_ALL_TITLES)));
+    }).then(() => { console.log('inner item'); });
   }
 
   static getFilteredMovies(title) {

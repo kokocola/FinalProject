@@ -1,9 +1,11 @@
 /**/.idea
 /**/node_modules
 
-/**/*/bin
-/**/*/obj
-/**/*.csproj.user
-/**/*.suo
-/**/*.sln.cache
-/**/*.vs
+**/bin/*
+**/obj/*
+**/*.suo
+**/*.csproj.user
+**/*.sln.cache
+*.vs
+**/*.lref
+**/*.obj

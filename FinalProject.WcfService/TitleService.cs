@@ -21,14 +21,14 @@ namespace FinalProject.WcfService
 		public IList<Title> GetTitlesByTitle(string title)
 		{
 			TitleLogic logic = new TitleLogic();
-			IList<Title> titles = logic.GetTitlesByTitle(title);
+			IList<Title> titles = logic.GetTitlesByTitle(title).ToList();
 			return titles;
 		}
 
 		public IList<Title> GetTitleRangeByTitle(string title, int startIndex, int count)
 		{
 			TitleLogic logic = new TitleLogic();
-			IList<Title> titles = logic.GetTitleRangeByTitle(title, startIndex, count);
+			IList<Title> titles = logic.GetTitleRangeByTitle(title, startIndex, count).ToList();
 			return titles;
 		}
 

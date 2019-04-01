@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as movieActions from '../../actions/movieActions';
 import { bindActionCreators } from 'redux';
 import MovieList from './MovieList';
-import MovieList2 from './MovieList2';
+//import MovieList2 from './MovieList2';
 import {browserHistory} from 'react-router';
 import _ from 'lodash';
 import SearchBar from '../common/SearchBar';

@@ -31,6 +31,14 @@ namespace FinalProject.WebApi
             {
                 c.SwaggerDoc("v1", new Info { Title = "Final Project", Version = "v1" });
             });
+
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowCredentials();
+            }));
         }
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +48,8 @@ namespace FinalProject.WebApi
 			{
 				app.UseDeveloperExceptionPage();
 			}
+
+            app.UseCors("CorsPolicy");
 
             app.UseSwagger();
 
