@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const NumberInput = ({name, label, onChange, value, error}) => {
+const CheckboxInput = ({name, label, onChange, value, error}) => {
 
     let wrapperClass= 'form-check';
 
@@ -21,7 +21,7 @@ const NumberInput = ({name, label, onChange, value, error}) => {
     );
 };
 
-NumberInput.propTypes = {
+CheckboxInput.propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
@@ -29,4 +29,4 @@ NumberInput.propTypes = {
     error: PropTypes.string
 };
 
-export default NumberInput;
+export default CheckboxInput;

@@ -13,6 +13,7 @@ export default function movieReducer(state = [], action) {
             return [...state.filter(movie => movie.titleId !== action.movie.titleId),
                     Object.assign({}, action.movie)];
         case types.REMOVE_MOVIE_SUCCESS:
+            debugger;
             return [...state.filter(movie => movie.titleId !== action.id)];
         default:
             return state;

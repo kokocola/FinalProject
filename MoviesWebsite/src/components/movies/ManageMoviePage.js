@@ -125,9 +125,9 @@ function mapStateToProps(state, ownProps) {
         primaryTitle:'',
         originalTitle:'',
         isAdult:false,
-        startYear: '',
-        endYear: '',
-        runtimeMinutes: '',
+        startYear: 0,
+        endYear: 0,
+        runtimeMinutes: 0,
         genres: ''
     };
 
