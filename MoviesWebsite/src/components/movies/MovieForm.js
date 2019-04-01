@@ -2,12 +2,12 @@ import React from 'react';
 import TextInput from '../common/TextInput';
 import NumberInput from '../common/NumberInput';
 import CheckboxInput from '../common/CheckboxInput';
-import SelectInput from '../common/SelectInput';
 
 const MovieForm = ({movie, onSave, onChange, saving, errors, onDelete}) => {
     return (
         <form>
             <h1>Manage Movie</h1>
+
             <TextInput
                 name="titleType"
                 label="Title Type"
@@ -46,23 +46,23 @@ const MovieForm = ({movie, onSave, onChange, saving, errors, onDelete}) => {
             <NumberInput
                 name="endYear"
                 label="End Year"
-                value={movie.endYear}
+                value={movie.endYear || 0}
                 onChange={onChange}
                 error={errors.endYear}
             />
             <NumberInput
-                name="runTimeMinutes"
+                name="runtimeMinutes"
                 label="Runtime Minutes"
-                value={movie.runTimeMinutes}
+                value={movie.runtimeMinutes || 0}
                 onChange={onChange}
-                error={errors.runTimeMinutes}
+                error={errors.runtimeMinutes}
             />
             <TextInput
-                name="genre"
-                label="Genre"
-                value={movie.genre}
+                name="genres"
+                label="Genres"
+                value={movie.genres}
                 onChange={onChange}
-                error={errors.genre}
+                error={errors.genres}
             />
             <input
                 type="submit"

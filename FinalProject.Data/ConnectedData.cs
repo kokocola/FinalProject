@@ -22,7 +22,7 @@ namespace FinalProject.Data
 		// SYNCHRONOUS
 		public void InsertTitle(Title title)
 		{
-			_context.Titles.Add(title);
+            _context.Titles.Add(title);
 			_context.SaveChanges();
 		}
 
@@ -95,7 +95,8 @@ namespace FinalProject.Data
 		// SYNCHRONOUS
 		public bool UpdateTitle(Title title)
 		{
-			int changes = _context.SaveChanges();
+            _context.Update(title);
+            int changes = _context.SaveChanges();
 
 			if (changes > 0)
 			{
@@ -107,6 +108,7 @@ namespace FinalProject.Data
 		// ASYNCHRONOUS
 		public async Task<bool> UpdateTitleAsync(Title title)
 		{
+            _context.Update(title);
 			int changes = await _context.SaveChangesAsync();
 
 			if (changes > 0)

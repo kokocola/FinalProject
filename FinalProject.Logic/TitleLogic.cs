@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FinalProject.Helpers;
 
 namespace FinalProject.Logic
 {
@@ -19,15 +20,19 @@ namespace FinalProject.Logic
 
 		// CREATE
 		// SYNCHRONOUS
-		public void InsertTitle(Title title)
+		public Title InsertTitle(Title title)
 		{
-			_data.InsertTitle(title);
+            title.TitleId = StringHelper.GenerateRandomString(12);
+            _data.InsertTitle(title);
+            return title;
 		}
 
 		// ASYNCHRONOUS
-		public async Task InsertTitleAsync(Title title)
+		public async Task<Title> InsertTitleAsync(Title title)
 		{
-			await _data.InsertTitleAsync(title);
+            title.TitleId = StringHelper.GenerateRandomString(12);
+            await _data.InsertTitleAsync(title);
+            return title;
 		}
 
 		// READ

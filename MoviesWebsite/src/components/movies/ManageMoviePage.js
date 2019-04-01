@@ -125,10 +125,10 @@ function mapStateToProps(state, ownProps) {
         primaryTitle:'',
         originalTitle:'',
         isAdult:false,
-        startYear: '',
-        endYear: '',
-        runTimeMinutes: '',
-        genre: ''
+        startYear: 0,
+        endYear: 0,
+        runtimeMinutes: 0,
+        genres: ''
     };
 
     if (movieId && state.movies.length > 0) {
