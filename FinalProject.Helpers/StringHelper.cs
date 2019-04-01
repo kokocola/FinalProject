@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Helpers
 {
-    public class StringHelper
+    public static class StringHelper
     {
         private static Random random = new Random();
         public static string GenerateRandomString(int length)

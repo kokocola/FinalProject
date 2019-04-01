@@ -56,6 +56,10 @@
       <Project>{426a05eb-d0df-40a9-9550-87d3bf819601}</Project>
       <Name>FinalProject.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FinalProject.Helpers\FinalProject.Helpers.csproj">
+      <Project>{486FACE4-5A70-40F6-BBF7-5AA1B768F8A5}</Project>
+      <Name>FinalProject.Helpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
