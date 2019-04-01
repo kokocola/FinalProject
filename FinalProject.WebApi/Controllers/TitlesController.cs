@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using FinalProject.Domain;
 using FinalProject.Logic;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 
 namespace FinalProject.WebApi.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class TitlesController : ControllerBase
 	{
@@ -28,7 +29,7 @@ namespace FinalProject.WebApi.Controllers
         // GET: api/Title
         [HttpGet]
         public IEnumerable<Title> GetMovies() {
-            return _logic.GetTitles();
+            return _logic.GetTitles().Take(5).ToList();
         }
 
         // GET: api/Title/5

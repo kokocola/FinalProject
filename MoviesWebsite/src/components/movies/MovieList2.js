@@ -1,6 +1,7 @@
+/*
 import React, {PropTypes} from 'react';
 import MovieListRow2 from './MovieListRow2';
-import { FixedSizeList as List } from 'react-window';
+import { FixedSizeList as List } from 'react-virtualized';
 
 const MovieList2 = ({movies}) => {
     return (
@@ -20,3 +21,4 @@ MovieList2.propTypes = {
 };
 
 export default MovieList2;
+*/
