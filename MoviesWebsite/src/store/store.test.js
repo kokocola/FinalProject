@@ -11,7 +11,7 @@ describe('Store', function() {
 
      const course = {
         title: "Clean Code"
-     }
+     };
 
      //act
      const action = courseActions.createCourseSuccess(course);

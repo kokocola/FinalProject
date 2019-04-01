@@ -5,44 +5,59 @@ import delay from './delay';
 // All calls return promises.
 const movies = [
   {
-    id: "1",
-    title: "Building Applications in React and Flux",
-    watchHref: "http://www.pluralsight.com/movies/react-flux-building-applications",
-    authorId: "cory-house",
-    length: "5:08",
-    category: "JavaScript"
+    titleId: "1",
+    titleType: "Movie 1",
+    primaryTitle: "Movie 1 Test",
+    originalTitle : "Original Movie 1",
+    isAdult: false,
+    startYear: 2000,
+    endYear: 2001,
+    runTimeMinutes: 122,
+    genre: "Action"
   },
   {
-    id: "2",
-    title: "Clean Code: Writing Code for Humans",
-    watchHref: "http://www.pluralsight.com/movies/writing-clean-code-humans",
-    authorId: "cory-house",
-    length: "3:10",
-    category: "Software Practices"
+    titleId: "2",
+    titleType: "Movie 2",
+    primaryTitle: "Movie 2 Test",
+    originalTitle : "Original Movie 2",
+    isAdult: false,
+    startYear: 1998,
+    endYear: 2005,
+    runTimeMinutes: 100,
+    genre: "Drama"
   },
   {
-    id: "3",
-    title: "Architecting Applications for the Real World",
-    watchHref: "http://www.pluralsight.com/movies/architecting-applications-dotnet",
-    authorId: "cory-house",
-    length: "2:52",
-    category: "Software Architecture"
+    titleId: "3",
+    titleType: "Movie 3",
+    primaryTitle: "Movie 3 Test",
+    originalTitle : "Original Movie 3",
+    isAdult: true,
+    startYear: 1995,
+    endYear: 2001,
+    runTimeMinutes: 45,
+    genre: "Comedy"
   },
   {
-    id: "4",
-    title: "Becoming an Outlier: Reprogramming the Developer Mind",
-    watchHref: "http://www.pluralsight.com/movies/career-reboot-for-developer-mind",
-    authorId: "cory-house",
-    length: "2:30",
-    category: "Career"
+    titleId: "4",
+    titleType: "Movie 4",
+    primaryTitle: "Movie 4 Test",
+    originalTitle : "Original Movie 4",
+    isAdult: false,
+    startYear: 2000,
+    endYear: 2014,
+    runTimeMinutes: 99,
+    genre: "Horrer"
   },
   {
-    id: "5",
-    title: "Web Component Fundamentals",
-    watchHref: "http://www.pluralsight.com/movies/web-components-shadow-dom",
-    authorId: "cory-house",
-    length: "5:10",
-    category: "HTML5"
+    titleId: "5",
+    titleType: "Movie 44",
+    primaryTitle: "Movie 44 Test",
+    originalTitle : "Original Movie 44",
+    isAdult: true,
+    startYear: 2000,
+    endYear: 2005,
+    runTimeMinutes: 98,
+    genre: "Thriller"
   }
 ];
 
@@ -52,7 +67,7 @@ function replaceAll(str, find, replace) {
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (movie) => {
-  return replaceAll(movie.title, ' ', '-');
+  return replaceAll(movie.titleType, ' ', '-');
 };
 
 class MovieApi {
@@ -64,25 +79,39 @@ class MovieApi {
     });
   }
 
+  static getFilteredMovies(title) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let filteredMovies = [];
+        if (title) {
+          filteredMovies = movies.filter(a => a.titleType.indexOf(title) > -1);
+        }
+        else {
+          reject(`Title cannot be empty`);
+        }
+        resolve(Object.assign([], filteredMovies));
+      }, delay);
+    });
+  }
+
   static saveMovie(movie) {
     movie = Object.assign({}, movie); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
         const minMovieTitleLength = 1;
-        if (movie.title.length < minMovieTitleLength) {
+        if (movie.titleType.length < minMovieTitleLength) {
           reject(`Title must be at least ${minMovieTitleLength} characters.`);
         }
 
-        if (movie.id) {
-          const existingMovieIndex = movies.findIndex(a => a.id == movie.id);
+        if (movie.titleId) {
+          const existingMovieIndex = movies.findIndex(a => a.titleId == movie.titleId);
           movies.splice(existingMovieIndex, 1, movie);
         } else {
           //Just simulating creation here.
           //The server would generate ids and watchHref's for new movies in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
-          movie.id = generateId(movie);
-          movie.watchHref = `http://www.pluralsight.com/movies/${movie.id}`;
+          movie.titleId = generateId(movie);
           movies.push(movie);
         }
 
@@ -91,14 +120,14 @@ class MovieApi {
     });
   }
 
-  static deleteMovie(movieId) {
+  static removeMovie(movieId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const indexOfMovieToDelete = movies.findIndex(movie => {
-          movie.id == movieId;
+          return movie.titleId === movieId;
         });
         movies.splice(indexOfMovieToDelete, 1);
-        resolve();
+        resolve(movieId);
       }, delay);
     });
   }
