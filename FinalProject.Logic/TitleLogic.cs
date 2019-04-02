@@ -23,6 +23,7 @@ namespace FinalProject.Logic
 		public Title InsertTitle(Title title)
 		{
             title.TitleId = StringHelper.GenerateRandomString(12);
+            System.Diagnostics.Debug.WriteLine(title.TitleId);
             _data.InsertTitle(title);
             return title;
 		}
@@ -106,15 +107,14 @@ namespace FinalProject.Logic
 
 		// DELETE
 		// SYNCHRONOUS
-		public void DeleteTitle(string id)
-		{
+		public void DeleteTitle(string id) {
 			_data.DeleteTitle(id);
 		}
 
 		// ASYNCHRONOUS
-		public async Task DeleteTitleAsync(string id)
+		public async Task<bool> DeleteTitleAsync(string id)
 		{
-			await _data.DeleteTitleAsync(id);
+			return await _data.DeleteTitleAsync(id);
 		}
 	}
 }

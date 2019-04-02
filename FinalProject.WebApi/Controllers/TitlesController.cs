@@ -20,16 +20,10 @@ namespace FinalProject.WebApi.Controllers
 			_logic = new TitleLogic();
 		}
 
-		// GET: api/Title
-		//[HttpGet]
-		//public async Task<IList<Title>> GetMovies() {
-		//	return await _logic.GetTitlesAsync();
-		//}
-
         // GET: api/Title
         [HttpGet]
         public IEnumerable<Title> GetMovies() {
-            return _logic.GetTitles().Take(1000).ToList();
+            return _logic.GetTitles().Take(1000);
         }
 
         // GET: api/Title/5
@@ -51,7 +45,7 @@ namespace FinalProject.WebApi.Controllers
 			return Ok(movies);
 		}
 
-		// GET: api/Title/{string:title}
+		// GET: api/Titles/{string:title}
 		[HttpGet("search/{title}")]
 		public async Task<IActionResult> SearchMovie([FromRoute] string title)
 		{
@@ -60,17 +54,30 @@ namespace FinalProject.WebApi.Controllers
 				return BadRequest(ModelState);
 			}
 
-            IEnumerable<Title> movies = await _logic.GetTitlesByTitleAsync(title);
+            IEnumerable<Title> titles = await _logic.GetTitlesByTitleAsync(title);
 
-			if (movies == null)
+			if (titles == null)
 			{
 				return NotFound();
 			}
-			return Ok(movies);
+			return Ok(titles);
 		}
 
-		// PUT: api/Title/5
-		[HttpPut("{id}")]
+        // GET: api/Titles/GetTitleRangeByTitle/{title}&{startIndex}&{count}
+        [HttpGet("GetTitleRangeByTitle/{title}&{startIndex}&{count}")]
+        public async Task<IActionResult> GetTitleRangeByTitleAsync([FromRoute] string title, [FromRoute] int startIndex, [FromRoute] int count)
+        {
+            var titles = await _logic.GetTitleRangeByTitleAsync(title, startIndex, count);
+            if(titles != null)
+                return Ok(titles);
+            else
+                NotFound();
+
+            return NoContent();
+        }
+
+        // PUT: api/Titles/5
+        [HttpPut("{id}")]
 		public async Task<IActionResult> PutMovies([FromRoute] string id, [FromBody] Title title)
 		{
 			if (!ModelState.IsValid)
@@ -104,7 +111,7 @@ namespace FinalProject.WebApi.Controllers
 			return Ok(title);
 		}
 
-		// POST: api/Title
+		// POST: api/Titles
 		[HttpPost]
 		public async Task<IActionResult> PostMovies([FromBody] Title title)
 		{
@@ -134,32 +141,25 @@ namespace FinalProject.WebApi.Controllers
 			}
 		}
 
-		// DELETE: api/Title/5
+		// DELETE: api/Titles/5
 		[HttpDelete("{id}")]
-		public async Task<IActionResult> DeleteMovies([FromRoute] string id)
+		public async Task<IActionResult> DeleteMovie([FromRoute] string id)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			//var movies = await _context.Movies.FindAsync(id);
-			//if (movies == null) {
-			//    return NotFound();
-			//}
-
-			//_context.Movies.Remove(movies);
-			//await _context.SaveChangesAsync();
-
 			if (!_logic.TitleExists(id))
 			{
-				return NotFound();
+				return NotFound(id);
 			}
 
-			await _logic.DeleteTitleAsync(id);
-
-			return Ok(id);
-			//return Ok(movies);
+			bool result = await _logic.DeleteTitleAsync(id);
+            if(result) {
+                return Ok(id);
+            }
+            return NoContent();
 		}
 	}
 }

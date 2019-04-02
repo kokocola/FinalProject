@@ -2405,11 +2405,21 @@
           "bin/placeholder/FinalProject.Domain.dll": {}
         }
       },
+      "FinalProject.Helpers/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/FinalProject.Helpers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinalProject.Helpers.dll": {}
+        }
+      },
       "FinalProject.Logic/1.0.0": {
         "type": "project",
         "dependencies": {
           "FinalProject.Data": "1.0.0",
-          "FinalProject.Domain": "1.0.0"
+          "FinalProject.Domain": "1.0.0",
+          "FinalProject.Helpers": "1.0.0"
         },
         "compile": {
           "bin/placeholder/FinalProject.Logic.dll": {}
@@ -4695,11 +4705,21 @@
           "bin/placeholder/FinalProject.Domain.dll": {}
         }
       },
+      "FinalProject.Helpers/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/FinalProject.Helpers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinalProject.Helpers.dll": {}
+        }
+      },
       "FinalProject.Logic/1.0.0": {
         "type": "project",
         "dependencies": {
           "FinalProject.Data": "1.0.0",
-          "FinalProject.Domain": "1.0.0"
+          "FinalProject.Domain": "1.0.0",
+          "FinalProject.Helpers": "1.0.0"
         },
         "compile": {
           "bin/placeholder/FinalProject.Logic.dll": {}
@@ -9129,6 +9149,11 @@
       "path": "../FinalProject.Domain/FinalProject.Domain.csproj",
       "msbuildProject": "../FinalProject.Domain/FinalProject.Domain.csproj"
     },
+    "FinalProject.Helpers/1.0.0": {
+      "type": "project",
+      "path": "../FinalProject.Helpers/FinalProject.Helpers.csproj",
+      "msbuildProject": "../FinalProject.Helpers/FinalProject.Helpers.csproj"
+    },
     "FinalProject.Logic/1.0.0": {
       "type": "project",
       "path": "../FinalProject.Logic/FinalProject.Logic.csproj",
@@ -9152,11 +9177,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Augusto\\Source\\Repos\\FinalProject\\FinalProject.WebApi\\FinalProject.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Augusto\\Source\\Repos\\kokocola\\FinalProject\\FinalProject.WebApi\\FinalProject.WebApi.csproj",
       "projectName": "FinalProject.WebApi",
-      "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\FinalProject\\FinalProject.WebApi\\FinalProject.WebApi.csproj",
+      "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\kokocola\\FinalProject\\FinalProject.WebApi\\FinalProject.WebApi.csproj",
       "packagesPath": "C:\\Users\\Augusto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Augusto\\Source\\Repos\\FinalProject\\FinalProject.WebApi\\obj\\",
+      "outputPath": "C:\\Users\\Augusto\\Source\\Repos\\kokocola\\FinalProject\\FinalProject.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -9175,11 +9200,11 @@
       "frameworks": {
         "net472": {
           "projectReferences": {
-            "C:\\Users\\Augusto\\Source\\Repos\\FinalProject\\FinalProject.Domain\\FinalProject.Domain.csproj": {
-              "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\FinalProject\\FinalProject.Domain\\FinalProject.Domain.csproj"
+            "C:\\Users\\Augusto\\Source\\Repos\\kokocola\\FinalProject\\FinalProject.Domain\\FinalProject.Domain.csproj": {
+              "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\kokocola\\FinalProject\\FinalProject.Domain\\FinalProject.Domain.csproj"
             },
-            "C:\\Users\\Augusto\\Source\\Repos\\FinalProject\\FinalProject.Logic\\FinalProject.Logic.csproj": {
-              "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\FinalProject\\FinalProject.Logic\\FinalProject.Logic.csproj"
+            "C:\\Users\\Augusto\\Source\\Repos\\kokocola\\FinalProject\\FinalProject.Logic\\FinalProject.Logic.csproj": {
+              "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\kokocola\\FinalProject\\FinalProject.Logic\\FinalProject.Logic.csproj"
             }
           }
         }

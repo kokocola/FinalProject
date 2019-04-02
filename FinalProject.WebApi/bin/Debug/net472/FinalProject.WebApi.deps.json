@@ -2026,10 +2026,16 @@
           "FinalProject.Domain.dll": {}
         }
       },
+      "FinalProject.Helpers/1.0.0": {
+        "compile": {
+          "FinalProject.Helper.dll": {}
+        }
+      },
       "FinalProject.Logic/1.0.0": {
         "dependencies": {
           "FinalProject.Data": "1.0.0",
-          "FinalProject.Domain": "1.0.0"
+          "FinalProject.Domain": "1.0.0",
+          "FinalProject.Helpers": "1.0.0"
         },
         "compile": {
           "FinalProject.Logic.dll": {}
@@ -3434,10 +3440,16 @@
           "FinalProject.Domain.dll": {}
         }
       },
+      "FinalProject.Helpers/1.0.0": {
+        "runtime": {
+          "FinalProject.Helper.dll": {}
+        }
+      },
       "FinalProject.Logic/1.0.0": {
         "dependencies": {
           "FinalProject.Data": "1.0.0",
-          "FinalProject.Domain": "1.0.0"
+          "FinalProject.Domain": "1.0.0",
+          "FinalProject.Helpers": "1.0.0"
         },
         "runtime": {
           "FinalProject.Logic.dll": {}
@@ -4664,6 +4676,11 @@
       "sha512": ""
     },
     "FinalProject.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FinalProject.Helpers/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

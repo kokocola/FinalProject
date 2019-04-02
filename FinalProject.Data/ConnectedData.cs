@@ -27,16 +27,14 @@ namespace FinalProject.Data
 		}
 
 		// ASYNCHRONOUS
-		public async Task InsertTitleAsync(Title title)
-		{
+		public async Task<int> InsertTitleAsync(Title title) {
 			await _context.Titles.AddAsync(title);
-			await _context.SaveChangesAsync();
+			return await _context.SaveChangesAsync();
 		}
 
 		// READ
 		// SYNCHRONOUS
-		public IEnumerable<Title> GetTitles()
-		{
+		public IEnumerable<Title> GetTitles() {
 			return _context.Titles;
 		}
 
@@ -47,12 +45,12 @@ namespace FinalProject.Data
 
 		public IEnumerable<Title> GetTitlesByTitle(string title)
 		{
-			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).ToList();
+			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title));
 		}
 
 		public IEnumerable<Title> GetTitleRangeByTitle(string title, int startIndex, int count)
 		{
-			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).Skip(startIndex).Take(count).ToList();
+			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).Skip(startIndex).Take(count);
 		}
 
 		public int GetTitleCountByTitle(string title)
@@ -81,7 +79,7 @@ namespace FinalProject.Data
 			return await _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).ToListAsync();
 		}
 
-		public async Task<IList<Title>> GetTitleRangeByTitleAsync(string title, int startIndex, int count)
+		public async Task<IEnumerable<Title>> GetTitleRangeByTitleAsync(string title, int startIndex, int count)
 		{
 			return await _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).Skip(startIndex).Take(count).ToListAsync();
 		}
@@ -98,8 +96,7 @@ namespace FinalProject.Data
             _context.Update(title);
             int changes = _context.SaveChanges();
 
-			if (changes > 0)
-			{
+			if (changes > 0) {
 				return true;
 			}
 			return false;
@@ -123,16 +120,22 @@ namespace FinalProject.Data
 		public void DeleteTitle(string id)
 		{
 			Title title = _context.Titles.Find(id);
-			_context.Titles.Remove(title);
-			_context.SaveChanges();
+            if(title != null) {
+                _context.Titles.Remove(title);
+                _context.SaveChanges();
+            }
 		}
 
 		// ASYNCHRONOUS
-		public async Task DeleteTitleAsync(string id)
+		public async Task<bool> DeleteTitleAsync(string id)
 		{
 			Title title = await _context.Titles.FindAsync(id);
-			_context.Titles.Remove(title);
-			await _context.SaveChangesAsync();
+            _context.Titles.Remove(title);
+            int result = await _context.SaveChangesAsync();
+            if(result > 0) {
+                return true;
+            }
+            return false;
 		}
 	}
 }

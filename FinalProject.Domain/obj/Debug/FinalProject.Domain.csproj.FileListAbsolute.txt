@@ -9,3 +9,9 @@ C:\Users\Augusto\Source\Repos\FinalProject\FinalProject.Domain\obj\Debug\FinalPr
 C:\Users\Augusto\Source\Repos\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Augusto\Source\Repos\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.dll
 C:\Users\Augusto\Source\Repos\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.pdb
+C:\Users\Augusto\Source\Repos\kokocola\FinalProject\FinalProject.Domain\bin\Debug\FinalProject.Domain.dll
+C:\Users\Augusto\Source\Repos\kokocola\FinalProject\FinalProject.Domain\bin\Debug\FinalProject.Domain.pdb
+C:\Users\Augusto\Source\Repos\kokocola\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.csprojAssemblyReference.cache
+C:\Users\Augusto\Source\Repos\kokocola\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Augusto\Source\Repos\kokocola\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.dll
+C:\Users\Augusto\Source\Repos\kokocola\FinalProject\FinalProject.Domain\obj\Debug\FinalProject.Domain.pdb
