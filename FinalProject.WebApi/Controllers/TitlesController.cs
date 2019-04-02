@@ -66,7 +66,7 @@ namespace FinalProject.WebApi.Controllers
 			{
 				return NotFound();
 			}
-			return Ok(movies);
+			return Ok(movies.Take(1000));
 		}
 
 		// PUT: api/Title/5
