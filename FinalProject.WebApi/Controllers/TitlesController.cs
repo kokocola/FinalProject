@@ -116,9 +116,10 @@ namespace FinalProject.WebApi.Controllers
 			//_context.Movies.Add(title);
 			try
 			{
-				//await _context.SaveChangesAsync();
-				Title newTitle = await _logic.InsertTitleAsync(title);
-                return Ok(newTitle);
+                //await _context.SaveChangesAsync();
+                title.TitleId = StringHelper.GenerateRandomString(12);
+                var inserted = await _logic.InsertTitleAsync(title);
+                return Ok(title);
             }
 			//catch (DbUpdateException) 
 			catch (Exception)

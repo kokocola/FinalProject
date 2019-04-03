@@ -71,6 +71,7 @@ const MovieForm = ({movie, onSave, onChange, saving, errors, onDelete}) => {
                 className="btn btn-primary"
                 onClick={onSave}
             />
+            &nbsp;&nbsp;&nbsp;
             <button
                 className="btn btn-danger"
                 onClick={onDelete}>
