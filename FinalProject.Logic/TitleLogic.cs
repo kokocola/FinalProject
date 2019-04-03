@@ -19,15 +19,15 @@ namespace FinalProject.Logic
 
 		// CREATE
 		// SYNCHRONOUS
-		public void InsertTitle(Title title)
+		public bool InsertTitle(Title title)
 		{
-			_data.InsertTitle(title);
+			return _data.InsertTitle(title);
 		}
 
 		// ASYNCHRONOUS
-		public async Task InsertTitleAsync(Title title)
+		public async Task<bool> InsertTitleAsync(Title title)
 		{
-			await _data.InsertTitleAsync(title);
+			return await _data.InsertTitleAsync(title);
 		}
 
 		// READ
@@ -101,15 +101,15 @@ namespace FinalProject.Logic
 
 		// DELETE
 		// SYNCHRONOUS
-		public void DeleteTitle(string id)
+		public bool DeleteTitle(string id)
 		{
-			_data.DeleteTitle(id);
+			return _data.DeleteTitle(id);
 		}
 
 		// ASYNCHRONOUS
-		public async Task DeleteTitleAsync(string id)
+		public async Task<bool> DeleteTitleAsync(string id)
 		{
-			await _data.DeleteTitleAsync(id);
+			return await _data.DeleteTitleAsync(id);
 		}
 	}
 }

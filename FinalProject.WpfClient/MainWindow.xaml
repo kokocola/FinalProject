@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalProject.WpfClient"
         mc:Ignorable="d"
-        Title="FinalProject" Height="600" Width="300" Icon="/FinalProject.WpfClient;component/Content/VideoCamera_16x.png">
+        Title="Search Title" Height="600" Width="300" Icon="/FinalProject.WpfClient;component/Content/VideoCamera_16x.png" WindowStartupLocation="CenterScreen">
     <DockPanel>
-        <TextBox x:Name="textBoxSearch" Text="{Binding Query, Delay=200, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Top" Height="32" VerticalContentAlignment="Center">
+        <TextBox x:Name="textBoxSearch" Text="{Binding Query, Delay=500, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Top" Height="32" VerticalContentAlignment="Center">
             <TextBox.InputBindings>
                 <KeyBinding Key="Return" Command="{Binding Search}" CommandParameter="{Binding .}"/>
             </TextBox.InputBindings>
         </TextBox>
         <ToolBar DockPanel.Dock="Top" ToolBarTray.IsLocked="True" Height="32">
-            <Button x:Name="buttonCreate">
+            <Button x:Name="buttonCreate" Command="{Binding Create}" CommandParameter="{Binding .}">
                 <Image Source="/FinalProject.WpfClient;component/Content/Add_grey_16x.png"/>
             </Button>
             <Button x:Name="buttonRead" Command="{Binding Search}" CommandParameter="{Binding .}">
                 <Image Source="/FinalProject.WpfClient;component/Content/Search_16x.png"/>
             </Button>
-            <Button x:Name="buttonUpdate">
+            <Button x:Name="buttonUpdate" Command="{Binding Update}" CommandParameter="{Binding .}">
                 <Image Source="/FinalProject.WpfClient;component/Content/Edit_grey_16x.png"/>
             </Button>
-            <Button x:Name="buttonDelete">
+            <Button x:Name="buttonDelete" Command="{Binding Delete}" CommandParameter="{Binding .}">
                 <Image Source="/FinalProject.WpfClient;component/Content/Cancel_grey_16x.png"/>
             </Button>
         </ToolBar>
@@ -35,7 +35,7 @@
             </StatusBarItem>
         </StatusBar>
         <Grid>
-            <ListView ItemsSource="{Binding Titles, Mode=OneWay}">
+            <ListView x:Name="listViewTitles" ItemsSource="{Binding TitlesView}" SelectedItem="{Binding SelectedTitle}" IsSynchronizedWithCurrentItem="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
