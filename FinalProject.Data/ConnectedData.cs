@@ -22,7 +22,7 @@ namespace FinalProject.Data
 		// SYNCHRONOUS
 		public bool InsertTitle(Title title)
 		{
-			_context.Titles.Add(title);
+            _context.Titles.Add(title);
 			int changes = _context.SaveChanges();
 
 			if (changes > 0)
@@ -115,7 +115,7 @@ namespace FinalProject.Data
 			titleEntity.Genres = titleEntity.Genres;
 			titleEntity.StartYear = title.StartYear;
 			titleEntity.TitleType = title.TitleType;
-			int changes = _context.SaveChanges();
+            int changes = _context.SaveChanges();
 
 			if (changes > 0)
 			{

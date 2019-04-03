@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using FinalProject.Domain;
 using FinalProject.Logic;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Cors;
 
 namespace FinalProject.WebApi.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class TitlesController : ControllerBase
 	{
@@ -28,7 +29,7 @@ namespace FinalProject.WebApi.Controllers
         // GET: api/Title
         [HttpGet]
         public IEnumerable<Title> GetMovies() {
-            return _logic.GetTitles();
+            return _logic.GetTitles().Take(1000).ToList();
         }
 
         // GET: api/Title/5
@@ -65,7 +66,7 @@ namespace FinalProject.WebApi.Controllers
 			{
 				return NotFound();
 			}
-			return Ok(movies);
+			return Ok(movies.Take(1000));
 		}
 
 		// PUT: api/Title/5
@@ -100,7 +101,7 @@ namespace FinalProject.WebApi.Controllers
 					throw;
 				}
 			}
-			return NoContent();
+			return Ok(title);
 		}
 
 		// POST: api/Title
@@ -116,8 +117,9 @@ namespace FinalProject.WebApi.Controllers
 			try
 			{
 				//await _context.SaveChangesAsync();
-				await _logic.InsertTitleAsync(title);
-			}
+				Title newTitle = await _logic.InsertTitleAsync(title);
+                return Ok(newTitle);
+            }
 			//catch (DbUpdateException) 
 			catch (Exception)
 			{
@@ -130,7 +132,6 @@ namespace FinalProject.WebApi.Controllers
 					throw;
 				}
 			}
-			return CreatedAtAction("GetTitles", new { id = title.TitleId }, title);
 		}
 
 		// DELETE: api/Title/5
@@ -157,7 +158,7 @@ namespace FinalProject.WebApi.Controllers
 
 			await _logic.DeleteTitleAsync(id);
 
-			return Ok();
+			return Ok(id);
 			//return Ok(movies);
 		}
 	}

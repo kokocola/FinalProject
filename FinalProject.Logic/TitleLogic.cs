@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FinalProject.Helpers;
 
 namespace FinalProject.Logic
 {
@@ -28,6 +29,7 @@ namespace FinalProject.Logic
 		public async Task<bool> InsertTitleAsync(Title title)
 		{
 			return await _data.InsertTitleAsync(title);
+            return title;
 		}
 
 		// READ

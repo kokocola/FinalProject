@@ -20,6 +20,7 @@
   "author": "Matthew Ko",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
     "jquery": "2.2.3",
@@ -28,6 +29,7 @@
     "react-redux": "4.4.5",
     "react-router": "2.4.0",
     "react-router-redux": "4.0.4",
+    "react-virtualized": "^9.21.0",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
     "toastr": "2.1.2"

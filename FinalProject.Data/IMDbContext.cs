@@ -28,6 +28,7 @@ namespace FinalProject.Data
                 //optionsBuilder.UseSqlServer(CONNECTION_STRING);
                 optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=IMDb;Integrated Security=True;MultipleActiveResultSets=true");
                 //optionsBuilder.UseSqlServer("Server=AUGUSTO-PC\\WINDOWSSERVER;Database=IMDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+                //optionsBuilder.UseSqlServer(@"Server=LT-5T9NXF2\SQLEXPRESS01;Database=IMDb;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
 

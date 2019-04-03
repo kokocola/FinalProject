@@ -5,7 +5,7 @@ import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
-import ManageMoviePage from './components/movies/ManageMoviePage';
+import ManageMoviePage from './components/movies/ManageMoviePage'; //eslint-disable-line import/no-named-as-default
 import MoviesPage from './components/movies/MoviesPage';
 
 export default (

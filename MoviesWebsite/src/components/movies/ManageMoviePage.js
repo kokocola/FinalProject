@@ -16,12 +16,24 @@ export class ManageMoviePage extends React.Component {
         };
         this.updateMovieState = this.updateMovieState.bind(this);
         this.saveMovie = this.saveMovie.bind(this);
+        this.deleteMovie = this.deleteMovie.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.movie.id != nextProps.movie.id) {
+        if (nextProps.movie && (this.props.movie.titleId != nextProps.movie.titleId)) {
             this.setState({movie:Object.assign({}, nextProps.movie)});
         }
+    }
+
+    deleteMovie(event) {
+        event.preventDefault();
+        this.props.actions.removeMovie(this.state.movie.titleId)
+        .then(() => {
+            this.redirectDeleted();
+        })
+        .catch((error) => {
+            toastr.error('Movie Saving Failed: ' + error);
+        });
     }
 
     updateMovieState(event) {
@@ -35,8 +47,8 @@ export class ManageMoviePage extends React.Component {
         let formIsValid = true;
         let errors = {};
 
-        if (this.state.movie.title.length < 3) {
-            errors.title = 'Title must be at least 3 characters.';
+        if (this.state.movie.titleType.length < 3) {
+            errors.titleType = 'Title must be at least 3 characters.';
             formIsValid = false;
         }
 
@@ -68,6 +80,11 @@ export class ManageMoviePage extends React.Component {
         this.context.router.push('/movies');
     }
 
+    redirectDeleted() {
+        toastr.success('Movie Deleted');
+        this.context.router.push('/movies');
+    }
+
     render() {
         return (
             <MovieForm
@@ -76,6 +93,7 @@ export class ManageMoviePage extends React.Component {
                 errors={this.state.errors}
                 movie={this.state.movie}
                 saving={this.state.saving}
+                onDelete={this.deleteMovie}
             />
         );
     }
@@ -92,7 +110,7 @@ ManageMoviePage.contextTypes = {
 };
 
 function getMovieById(movies, id) {
-    const movie = movies.filter(movie => movie.id == id);
+    const movie = movies.filter(movie => movie.titleId === id);
     return (movie.length) ? movie[0] : null;
 }
 
@@ -102,12 +120,15 @@ function mapStateToProps(state, ownProps) {
     const movieId = ownProps.params.id;
 
     let movie = {
-        id: '',
-        watchHref:'',
-        title:'',
-        authorId:'',
-        length:'',
-        category: ''
+        titleId: '',
+        titleType:'',
+        primaryTitle:'',
+        originalTitle:'',
+        isAdult:false,
+        startYear: 0,
+        endYear: 0,
+        runtimeMinutes: 0,
+        genres: ''
     };
 
     if (movieId && state.movies.length > 0) {

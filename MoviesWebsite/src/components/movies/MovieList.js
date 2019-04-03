@@ -7,15 +7,19 @@ const MovieList = ({movies}) => {
             <thead>
                 <tr>
                     <th>&nbsp;</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Category</th>
-                    <th>Length</th>
+                    <th>Title Type</th>
+                    <th>Primary Title</th>
+                    <th>Original Title</th>
+                    <th>Is Adult</th>
+                    <th>Start Year</th>
+                    <th>End Year</th>
+                    <th>Minutes</th>
+                    <th>Genres</th>
                 </tr>
             </thead>
             <tbody>
                 {movies.map(movie =>
-                    <MovieListRow key={movie.id} movie={movie}/>
+                    <MovieListRow key={movie.titleId} movie={movie}/>
                 )}
             </tbody>
         </table>
