@@ -29,7 +29,6 @@ namespace FinalProject.Logic
 		public async Task<bool> InsertTitleAsync(Title title)
 		{
 			return await _data.InsertTitleAsync(title);
-            return title;
 		}
 
 		// READ

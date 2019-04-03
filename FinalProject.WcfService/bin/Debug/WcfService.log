@@ -143,3 +143,38 @@
 2019-04-02 21:48:24,362 [11] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
 2019-04-02 21:48:24,746 [8] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 0, 100, success
 2019-04-02 21:48:25,270 [11] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:47:36,164 [12] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:47:36,650 [9] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:47:37,124 [12] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 0, 100, success
+2019-04-02 22:47:37,274 [9] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:49:30,702 [12] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:50:29,403 [11] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:50:29,648 [7] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 0, 0, success
+2019-04-02 22:50:44,799 [8] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:51:20,753 [12] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:51:21,162 [7] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 0, 0, success
+2019-04-02 22:51:21,173 [12] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:51:52,877 [11] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:51:53,341 [7] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:51:53,720 [9] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 0, 100, success
+2019-04-02 22:51:53,927 [7] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:54:13,978 [10] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:54:14,399 [12] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: , success
+2019-04-02 22:54:14,962 [10] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 0, 100, success
+2019-04-02 22:54:22,262 [11] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 13900, 100, success
+2019-04-02 22:54:22,279 [9] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 41700, 100, success
+2019-04-02 22:54:22,292 [12] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 69500, 100, success
+2019-04-02 22:54:22,314 [11] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 139000, 100, success
+2019-04-02 22:54:22,331 [7] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 180700, 100, success
+2019-04-02 22:54:22,343 [9] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 208500, 100, success
+2019-04-02 22:54:22,362 [10] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 264100, 100, success
+2019-04-02 22:54:22,385 [12] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 291900, 100, success
+2019-04-02 22:54:22,446 [8] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 305900, 100, success
+2019-04-02 22:54:22,446 [13] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 292000, 100, success
+2019-04-02 22:54:22,447 [23] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 305800, 100, success
+2019-04-02 22:54:22,493 [11] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 319800, 100, success
+2019-04-02 22:54:22,545 [7] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 333700, 100, success
+2019-04-02 22:54:22,587 [9] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: , 320400, 100, success
+2019-04-02 22:54:33,510 [10] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: blade, success
+2019-04-02 22:54:33,518 [10] INFO  FinalProject.WcfService.TitleService GetTitleRangeByTitle: blade, 0, 100, success
+2019-04-02 22:54:33,560 [11] INFO  FinalProject.WcfService.TitleService GetTitleCountByTitle: blade, success

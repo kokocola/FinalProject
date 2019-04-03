@@ -1,0 +1,92 @@
+﻿using FinalProject.Logic;
+using FinalProject.Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text;
+using log4net;
+using log4net.Config;
+using System.Reflection;
+
+namespace FinalProject.WcfService
+{
+	public class TitleService : ITitleService
+	{
+		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+		public TitleService()
+		{
+			XmlConfigurator.Configure();
+		}
+
+		// CREATE
+		public bool InsertTitle(Title title)
+		{
+			TitleLogic logic = new TitleLogic();
+			bool success = logic.InsertTitle(title);
+			log.Info($"InsertTitle: {title.TitleId}, {(success ? "success" : "fail")}");
+			return success;
+		}
+
+		// READ
+		public Title GetTitleById(string id)
+		{
+			TitleLogic logic = new TitleLogic();
+			Title title = logic.GetTitleById(id);
+			log.Info($"GetTitleById: {id}, {(title != null ? "success" : "failure")}");
+			return title;
+		}
+
+		public IEnumerable<Title> GetTitlesByTitle(string titleName)
+		{
+			TitleLogic logic = new TitleLogic();
+<<<<<<< HEAD
+			IEnumerable<Title> titles = logic.GetTitlesByTitle(titleName);
+			log.Info($"GetTitlesByTitle: {titleName}, {(titles != null ? "success" : "failure")}");
+=======
+			IList<Title> titles = logic.GetTitlesByTitle(title).ToList();
+>>>>>>> master
+			return titles;
+		}
+
+		public IEnumerable<Title> GetTitleRangeByTitle(string titleName, int startIndex, int count)
+		{
+			TitleLogic logic = new TitleLogic();
+<<<<<<< HEAD
+			IEnumerable<Title> titles = logic.GetTitleRangeByTitle(titleName, startIndex, count);
+			log.Info($"GetTitleRangeByTitle: {titleName}, {startIndex}, {count}, {(titles != null ? "success" : "failure")}");
+=======
+			IList<Title> titles = logic.GetTitleRangeByTitle(title, startIndex, count).ToList();
+>>>>>>> master
+			return titles;
+		}
+
+		public int GetTitleCountByTitle(string titleName)
+		{
+			TitleLogic logic = new TitleLogic();
+			int count = logic.GetTitleCountByTitle(titleName);
+			log.Info($"GetTitleCountByTitle: {titleName}, {(count > -1 ? "success" : "failure")}");
+			return count;
+		}
+
+		// UPDATE
+		public bool UpdateTitle(Title title)
+		{
+			TitleLogic logic = new TitleLogic();
+			bool success = logic.UpdateTitle(title);
+			log.Info($"UpdateTitle: {title.TitleId}, {(success ? "success" : "fail")}");
+			return success; 
+		}
+
+		// DELETE
+		public bool DeleteTitle(string id)
+		{
+			TitleLogic logic = new TitleLogic();
+			bool success = logic.DeleteTitle(id);
+			log.Info($"DeleteTitle: {id}, {(success ? "success" : "fail")}");
+			return success;
+		}
+	}
+}

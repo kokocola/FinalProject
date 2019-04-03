@@ -30,6 +30,10 @@ namespace FinalProject.WpfClient
 			
 			mwvm.TitleProvider.TitleName = mwvm.Query;
 			// reset scroll position (but how do we access the view from the view model, and isn't this bad? - what's the right way?)
+			if (string.IsNullOrEmpty(mwvm.Query) == false && mwvm.TitleDataVirtualized[0] != null)
+			{ 
+				mwvm.Owner.listViewTitles.ScrollIntoView(mwvm.TitleDataVirtualized[0]);
+			}
 			// TODO: cancel all ongoing searches when a new search begins - is this even possible with WCF?
 			await Task.Run( () => { mwvm.TitleDataVirtualized.ResetAsync();});
 			int count = await mwvm.TitleProvider.GetCountAsync();

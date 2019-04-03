@@ -2405,11 +2405,21 @@
           "bin/placeholder/FinalProject.Domain.dll": {}
         }
       },
+      "FinalProject.Helpers/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/FinalProject.Helpers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinalProject.Helpers.dll": {}
+        }
+      },
       "FinalProject.Logic/1.0.0": {
         "type": "project",
         "dependencies": {
           "FinalProject.Data": "1.0.0",
-          "FinalProject.Domain": "1.0.0"
+          "FinalProject.Domain": "1.0.0",
+          "FinalProject.Helpers": "1.0.0"
         },
         "compile": {
           "bin/placeholder/FinalProject.Logic.dll": {}
@@ -4695,11 +4705,21 @@
           "bin/placeholder/FinalProject.Domain.dll": {}
         }
       },
+      "FinalProject.Helpers/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/FinalProject.Helpers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FinalProject.Helpers.dll": {}
+        }
+      },
       "FinalProject.Logic/1.0.0": {
         "type": "project",
         "dependencies": {
           "FinalProject.Data": "1.0.0",
-          "FinalProject.Domain": "1.0.0"
+          "FinalProject.Domain": "1.0.0",
+          "FinalProject.Helpers": "1.0.0"
         },
         "compile": {
           "bin/placeholder/FinalProject.Logic.dll": {}
@@ -9128,6 +9148,11 @@
       "type": "project",
       "path": "../FinalProject.Domain/FinalProject.Domain.csproj",
       "msbuildProject": "../FinalProject.Domain/FinalProject.Domain.csproj"
+    },
+    "FinalProject.Helpers/1.0.0": {
+      "type": "project",
+      "path": "../FinalProject.Helpers/FinalProject.Helpers.csproj",
+      "msbuildProject": "../FinalProject.Helpers/FinalProject.Helpers.csproj"
     },
     "FinalProject.Logic/1.0.0": {
       "type": "project",

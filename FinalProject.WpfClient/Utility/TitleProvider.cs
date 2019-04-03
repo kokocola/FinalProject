@@ -25,8 +25,7 @@ namespace FinalProject.WpfClient
 			};
 		}
 
-		public Task<PagedSourceItemsPacket<Title>> GetItemsAtAsync(int pageoffset, int count,
-	bool usePlaceholder)
+		public Task<PagedSourceItemsPacket<Title>> GetItemsAtAsync(int pageoffset, int count, bool usePlaceholder)
 		{
 			return Task.Run(() => {
 				TitleServiceClient client = new TitleServiceClient();
