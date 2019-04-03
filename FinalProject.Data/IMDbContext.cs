@@ -26,8 +26,9 @@ namespace FinalProject.Data
             {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 //optionsBuilder.UseSqlServer(CONNECTION_STRING);
-                //optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=IMDb;Integrated Security=True;");
-                optionsBuilder.UseSqlServer(@"Server=LT-5T9NXF2\SQLEXPRESS01;Database=IMDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+                optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=IMDb;Integrated Security=True;MultipleActiveResultSets=true");
+                //optionsBuilder.UseSqlServer("Server=AUGUSTO-PC\\WINDOWSSERVER;Database=IMDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+                //optionsBuilder.UseSqlServer(@"Server=LT-5T9NXF2\SQLEXPRESS01;Database=IMDb;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
 

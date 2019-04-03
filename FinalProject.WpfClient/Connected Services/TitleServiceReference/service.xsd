@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/FinalProject.Domain" />
+  <xs:element name="InsertTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/FinalProject.Domain" minOccurs="0" name="title" nillable="true" type="q1:Title" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertTitleResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetTitleById">
     <xs:complexType>
       <xs:sequence>
@@ -11,7 +25,7 @@
   <xs:element name="GetTitleByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/FinalProject.Domain" minOccurs="0" name="GetTitleByIdResult" nillable="true" type="q1:Title" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/FinalProject.Domain" minOccurs="0" name="GetTitleByIdResult" nillable="true" type="q2:Title" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -25,7 +39,7 @@
   <xs:element name="GetTitlesByTitleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/FinalProject.Domain" minOccurs="0" name="GetTitlesByTitleResult" nillable="true" type="q2:ArrayOfTitle" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FinalProject.Domain" minOccurs="0" name="GetTitlesByTitleResult" nillable="true" type="q3:ArrayOfTitle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -41,7 +55,7 @@
   <xs:element name="GetTitleRangeByTitleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FinalProject.Domain" minOccurs="0" name="GetTitleRangeByTitleResult" nillable="true" type="q3:ArrayOfTitle" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/FinalProject.Domain" minOccurs="0" name="GetTitleRangeByTitleResult" nillable="true" type="q4:ArrayOfTitle" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -56,6 +70,34 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetTitleCountByTitleResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/FinalProject.Domain" minOccurs="0" name="title" nillable="true" type="q5:Title" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTitleResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteTitleResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

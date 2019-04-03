@@ -20,23 +20,36 @@ namespace FinalProject.Data
 
 		// CREATE
 		// SYNCHRONOUS
-		public void InsertTitle(Title title)
+		public bool InsertTitle(Title title)
 		{
             _context.Titles.Add(title);
-			_context.SaveChanges();
+			int changes = _context.SaveChanges();
+
+			if (changes > 0)
+			{
+				return true;
+			}
+			return false;
 		}
 
 		// ASYNCHRONOUS
-		public async Task InsertTitleAsync(Title title)
+		public async Task<bool> InsertTitleAsync(Title title)
 		{
 			await _context.Titles.AddAsync(title);
-			await _context.SaveChangesAsync();
+			int changes = await _context.SaveChangesAsync();
+
+			if (changes > 0)
+			{
+				return true;
+			}
+			return false;
 		}
 
 		// READ
 		// SYNCHRONOUS
 		public IEnumerable<Title> GetTitles()
 		{
+			//return _context.Titles.ToList();
 			return _context.Titles;
 		}
 
@@ -47,12 +60,14 @@ namespace FinalProject.Data
 
 		public IEnumerable<Title> GetTitlesByTitle(string title)
 		{
-			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).ToList();
+			//return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).ToList();
+			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title));
 		}
 
 		public IEnumerable<Title> GetTitleRangeByTitle(string title, int startIndex, int count)
 		{
-			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).Skip(startIndex).Take(count).ToList();
+			//return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).Skip(startIndex).Take(count).ToList();
+			return _context.Titles.Where(s => s.PrimaryTitle.Contains(title)).Skip(startIndex).Take(count);
 		}
 
 		public int GetTitleCountByTitle(string title)
@@ -95,7 +110,11 @@ namespace FinalProject.Data
 		// SYNCHRONOUS
 		public bool UpdateTitle(Title title)
 		{
-            _context.Update(title);
+			Title titleEntity = _context.Titles.Find(title.TitleId);
+			titleEntity.PrimaryTitle = title.PrimaryTitle;
+			titleEntity.Genres = titleEntity.Genres;
+			titleEntity.StartYear = title.StartYear;
+			titleEntity.TitleType = title.TitleType;
             int changes = _context.SaveChanges();
 
 			if (changes > 0)
@@ -108,7 +127,11 @@ namespace FinalProject.Data
 		// ASYNCHRONOUS
 		public async Task<bool> UpdateTitleAsync(Title title)
 		{
-            _context.Update(title);
+			Title titleEntity = _context.Titles.Find(title.TitleId);
+			titleEntity.PrimaryTitle = title.PrimaryTitle;
+			titleEntity.Genres = titleEntity.Genres;
+			titleEntity.StartYear = title.StartYear;
+			titleEntity.TitleType = title.TitleType;
 			int changes = await _context.SaveChangesAsync();
 
 			if (changes > 0)
@@ -120,19 +143,31 @@ namespace FinalProject.Data
 
 		// DELETE
 		// SYNCHRONOUS
-		public void DeleteTitle(string id)
+		public bool DeleteTitle(string id)
 		{
 			Title title = _context.Titles.Find(id);
 			_context.Titles.Remove(title);
-			_context.SaveChanges();
+			int changes = _context.SaveChanges();
+
+			if (changes > 0)
+			{
+				return true;
+			}
+			return false;
 		}
 
 		// ASYNCHRONOUS
-		public async Task DeleteTitleAsync(string id)
+		public async Task<bool> DeleteTitleAsync(string id)
 		{
 			Title title = await _context.Titles.FindAsync(id);
 			_context.Titles.Remove(title);
-			await _context.SaveChangesAsync();
-		}
+			int changes = await _context.SaveChangesAsync();
+
+			if (changes > 0)
+			{
+				return true;
+			}
+			return false;
+		}	
 	}
 }

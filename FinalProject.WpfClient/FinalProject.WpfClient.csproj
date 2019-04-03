@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AlphaChiTech.Virtualization, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VirtualizingObservableCollection.1.2.0\lib\AlphaChiTech.Virtualization.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -57,17 +60,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\DeleteCommand.cs" />
+    <Compile Include="Commands\CreateCommand.cs" />
+    <Compile Include="Commands\UpdateCommand.cs" />
     <Compile Include="Connected Services\TitleServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Utility\AsyncVirtualizingCollection.cs" />
-    <Compile Include="Utility\IItemsProvider.cs" />
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="TitleStoreWindow.xaml.cs">
+      <DependentUpon>TitleStoreWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utility\TitleProvider.cs" />
     <Compile Include="Commands\SearchCommand.cs" />
-    <Compile Include="Utility\VirtualizingCollection.cs" />
+    <Compile Include="Utility\VisualTreeHelpers.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +87,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TitleStoreWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -102,9 +113,6 @@
     <None Include="Connected Services\TitleServiceReference\FinalProject.Domain.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TitleServiceReference\FinalProject.WpfClient.TitleServiceReference.Title.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\TitleServiceReference\service.wsdl" />
     <None Include="Connected Services\TitleServiceReference\service.xsd">
       <SubType>Designer</SubType>
@@ -112,6 +120,8 @@
     <None Include="Connected Services\TitleServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\FinalProject.Domain.Title.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinalProject.Domain;
+using FinalProject.WpfClient.TitleServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -6,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using FinalProject.WpfClient.TitleServiceReference;
 
 namespace FinalProject.WpfClient
 {
@@ -19,17 +20,21 @@ namespace FinalProject.WpfClient
 			return true;
 		}
 
-		public void Execute(object context)
+		public async void Execute(object parameter)
 		{
+			MainWindowViewModel mwvm = parameter as MainWindowViewModel;
+			if (!string.IsNullOrEmpty(mwvm.Query))
+			{ 
+				mwvm.ResultCount = $"Searching for '{mwvm.Query}'";
+			}
+			
+			mwvm.TitleProvider.TitleName = mwvm.Query;
+			// reset scroll position (but how do we access the view from the view model, and isn't this bad? - what's the right way?)
+			// TODO: cancel all ongoing searches when a new search begins - is this even possible with WCF?
+			await Task.Run( () => { mwvm.TitleDataVirtualized.ResetAsync();});
+			int count = await mwvm.TitleProvider.GetCountAsync();
+			mwvm.ResultCount = count.ToString();
 
-			MainWindowViewModel mwvm = context as MainWindowViewModel;
-			//MovieServiceClient client = new MovieServiceClient();
-
-			mwvm.ResultCount = $"Searching for {mwvm.Query}";
-			TitleProvider provider = new TitleProvider(mwvm.Query);
-			mwvm.ResultCount = provider.FetchCount().ToString();
-			//Task.Run(() => mwvm.Movies = new AsyncVirtualizingCollection<Movie>(provider)).ConfigureAwait(false);  // not a fan of blowing away the collection, but AFAIK you can't cancel WCF service calls
-			mwvm.Titles= new AsyncVirtualizingCollection<Title>(provider);  // not a fan of blowing away the collection, but AFAIK you can't cancel WCF service calls
 		}
 	}
 }
