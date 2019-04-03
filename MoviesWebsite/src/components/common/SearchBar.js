@@ -5,6 +5,7 @@ const SearchBar = ({name, label, onChange, onClick, placeholder, value, error}) 
 
     return (
         <form className="row">
+            <br />
             <TextInput
                 name={name}
                 label={label}

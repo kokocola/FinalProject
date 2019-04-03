@@ -115,6 +115,10 @@ namespace FinalProject.Data
 			titleEntity.Genres = titleEntity.Genres;
 			titleEntity.StartYear = title.StartYear;
 			titleEntity.TitleType = title.TitleType;
+            titleEntity.RuntimeMinutes = title.RuntimeMinutes;
+            titleEntity.IsAdult = titleEntity.IsAdult;
+            titleEntity.OriginalTitle = title.OriginalTitle;
+            titleEntity.EndYear = title.EndYear;
             int changes = _context.SaveChanges();
 
 			if (changes > 0)
@@ -132,7 +136,11 @@ namespace FinalProject.Data
 			titleEntity.Genres = titleEntity.Genres;
 			titleEntity.StartYear = title.StartYear;
 			titleEntity.TitleType = title.TitleType;
-			int changes = await _context.SaveChangesAsync();
+            titleEntity.RuntimeMinutes = title.RuntimeMinutes;
+            titleEntity.IsAdult = titleEntity.IsAdult;
+            titleEntity.OriginalTitle = title.OriginalTitle;
+            titleEntity.EndYear = title.EndYear;
+            int changes = await _context.SaveChangesAsync();
 
 			if (changes > 0)
 			{
